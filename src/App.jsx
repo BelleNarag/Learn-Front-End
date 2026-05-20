@@ -4,11 +4,30 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+function GoalCard(props) {
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <p>{props.description}</p>
+    </div>
+  )
+}
+
+const goals = [
+  { id: 1, title: "🏠 Emergency Fund", description: "Saving up for 3 months of expenses" },
+  { id: 2, title: "✈️ Europe Trip", description: "Saving up for a 2-week trip" },
+  { id: 3, title: "💻 New Laptop", description: "Upgrading for school" },
+  { id: 4, title: "📱 New iPad", description: "Saving up for an iPad for school" },
+]
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+{goals.map((goal) => (
+  <GoalCard key={goal.id} title={goal.title} description={goal.description} />
+))}
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
